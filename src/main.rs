@@ -1,8 +1,9 @@
 extern crate argparse;
-use itertools::Itertools;
 
 use argparse::{ArgumentParser, Store};
 use std::fs;
+
+mod day1;
 
 fn main() {
     let mut day = String::new();
@@ -31,33 +32,11 @@ fn main() {
 
 fn dispatch(day: &u8, input: &str) {
     match day {
-        1 => day1(input),
+        1 => day1::calculate(input),
         2..=24 => unimplemented!(),
         _ => {
             eprintln!("Day must be in range 1-24");
             std::process::exit(1);
         }
     }
-}
-
-fn find_product(inputs: &[u64], n: usize) -> u64 {
-    let mut result = 0;
-    for perm in inputs.iter().permutations(n) {
-        if perm.clone().into_iter().sum::<u64>() == 2020 {
-            result = perm.clone().into_iter().product();
-            break;
-        }
-    }
-    result
-}
-
-fn day1(input: &str) {
-    let mut inputs = Vec::new();
-
-    for line in input.lines() {
-        inputs.push(line.parse::<u64>().unwrap());
-    }
-
-    println!("The product of 2 numbers: {}", find_product(&inputs, 2));
-    println!("The product of 3 numbers: {}", find_product(&inputs, 3));
 }
