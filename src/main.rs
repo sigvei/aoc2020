@@ -4,6 +4,7 @@ use argparse::{ArgumentParser, Store};
 use std::fs;
 
 mod day1;
+mod day2;
 
 fn main() {
     let mut day = String::new();
@@ -33,7 +34,8 @@ fn main() {
 fn dispatch(day: &u8, input: &str) {
     match day {
         1 => day1::calculate(input),
-        2..=24 => unimplemented!(),
+        2 => day2::calculate(input),
+        3..=24 => unimplemented!(),
         _ => {
             eprintln!("Day must be in range 1-24");
             std::process::exit(1);
