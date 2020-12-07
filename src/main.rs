@@ -9,6 +9,7 @@ mod day3;
 mod day4;
 mod day5;
 mod day6;
+mod day7;
 
 fn main() {
     let mut day = String::new();
@@ -43,7 +44,8 @@ fn dispatch(day: &u8, input: &str) {
         4 => day4::calculate(input),
         5 => day5::calculate(input),
         6 => day6::calculate(input),
-        7..=24 => unimplemented!(),
+        7 => day7::calculate(input),
+        8..=24 => unimplemented!(),
         _ => {
             eprintln!("Day must be in range 1-24");
             std::process::exit(1);
