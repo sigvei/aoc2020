@@ -4,6 +4,7 @@ use argparse::{ArgumentParser, Store};
 use std::fs;
 
 mod day1;
+mod day10;
 mod day2;
 mod day3;
 mod day4;
@@ -49,7 +50,8 @@ fn dispatch(day: &u8, input: &str) {
         7 => day7::calculate(input),
         8 => day8::calculate(input),
         9 => day9::calculate(input),
-        10..=24 => unimplemented!(),
+        10 => day10::calculate(input),
+        11..=24 => unimplemented!(),
         _ => {
             eprintln!("Day must be in range 1-24");
             std::process::exit(1);
