@@ -9,6 +9,7 @@ mod day11;
 mod day12;
 mod day13;
 mod day14;
+mod day15;
 mod day2;
 mod day3;
 mod day4;
@@ -63,7 +64,8 @@ fn dispatch(day: &u8, input: &str) {
         12 => day12::calculate(input),
         13 => day13::calculate(input),
         14 => day14::calculate(input),
-        15..=24 => unimplemented!(),
+        15 => day15::calculate(input),
+        16..=24 => unimplemented!(),
         _ => {
             eprintln!("Day must be in range 1-24");
             std::process::exit(1);
